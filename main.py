@@ -45,6 +45,6 @@ class Task(tk.Frame):
 
 
 root = tk.Tk()
-root.geometry("500x200");
+root.geometry("500x700");
 app = Application(master=root)
 app.mainloop()
