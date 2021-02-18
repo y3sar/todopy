@@ -6,14 +6,19 @@ class Application(tk.Frame):
         self.task_list = [];
         self.master = master
         self.pack()
-        for i in range(5):
-            self.create_task(str(i))
+        self.create_widgets();
 
-    def create_task(self, task_text):
-        self.task_list.append(Task(task_text, master=self));
+    def create_task(self):
+        self.task_list.append(Task(self.task_text.get(), master=self));
+        self.task_text.delete(0, len(self.task_text.get()));
 
-    def add_task(self):
-        pass
+    def create_widgets(self):
+        self.task_text = tk.Entry(self);
+        self.task_text.pack(side="top");
+        self.task_button = tk.Button(self, text="create task", command=lambda: self.create_task());
+        self.task_button.pack(side="top");
+
+
 
 
 class Task(tk.Frame):
